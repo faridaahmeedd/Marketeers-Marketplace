@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mgjnhDSljsTuMpOoSe71sjh/hKCAocrfEKtI030Gs44=",
+  "Hash": "bYReJrUe1O2+1b39+HJSwMi9Zgjj3KP5/FMqs4dxbO8=",
   "Source": "ArtPlatform",
   "BasePath": "_content/ArtPlatform",
   "Mode": "Default",
@@ -91,6 +91,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\.Net\\ArtPlatform\\ArtPlatform\\wwwroot\\images\\motherday.JPG",
+      "SourceId": "ArtPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\.Net\\ArtPlatform\\ArtPlatform\\wwwroot\\",
+      "BasePath": "_content/ArtPlatform",
+      "RelativePath": "images/motherday.JPG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\motherday.JPG"
     },
     {
       "Identity": "C:\\.Net\\ArtPlatform\\ArtPlatform\\wwwroot\\js\\site.js",

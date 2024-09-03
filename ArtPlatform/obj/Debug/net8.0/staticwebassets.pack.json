@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\.Net\\ArtPlatform\\ArtPlatform\\wwwroot\\images\\motherday.JPG",
+      "PackagePath": "staticwebassets\\images\\motherday.JPG"
+    },
+    {
       "Id": "C:\\.Net\\ArtPlatform\\ArtPlatform\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

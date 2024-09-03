@@ -3,6 +3,7 @@ using ArtPlatform.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ArtPlatform.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240903131450_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -103,7 +106,7 @@ namespace ArtPlatform.Migrations
                     b.ToTable("Brands");
                 });
 
-            modelBuilder.Entity("ArtPlatform.Models.Category", b =>
+            modelBuilder.Entity("ArtPlatform.Models.BrandCategory", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -172,7 +175,7 @@ namespace ArtPlatform.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ArtPlatform.Models.Category", "Category")
+                    b.HasOne("ArtPlatform.Models.BrandCategory", "Category")
                         .WithMany("Brands")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -204,7 +207,7 @@ namespace ArtPlatform.Migrations
                     b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("ArtPlatform.Models.Category", b =>
+            modelBuilder.Entity("ArtPlatform.Models.BrandCategory", b =>
                 {
                     b.Navigation("Brands");
                 });
