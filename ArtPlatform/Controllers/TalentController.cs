@@ -3,29 +3,46 @@ using ArtPlatform.Models;
 using ArtPlatform.ViewModels;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace ArtPlatform.Controllers
 {
 	public class TalentController : Controller
 	{
         private readonly ITalentRepository _talentRepository;
+        private readonly ICategoryRepository _categoryRepository;
         private readonly IMapper _mapper;
 
-        public TalentController(ITalentRepository talentRepository, IMapper mapper)
+        public TalentController(ITalentRepository talentRepository, ICategoryRepository categoryRepository, IMapper mapper)
 		{
             this._talentRepository = talentRepository;
+            this._categoryRepository = categoryRepository;
             this._mapper = mapper;
         }
 
 		[HttpGet]
-		public IActionResult DisplayTalents()
-		{
-			List<Talent> talents = _talentRepository.GetAll();
-            Console.WriteLine("---------------------------------------------------------------------------");
-            Console.WriteLine(talents.Count.ToString());
+        public IActionResult DisplayTalents(string selectedCategory = null, int page = 1, int pageSize = 6)
+        {
+            List<Talent> talents = _talentRepository.GetAll();
+            // Filter by category if provided
+            if (!string.IsNullOrEmpty(selectedCategory))
+            {
+                talents = _talentRepository.GetTalentsOfCategory(selectedCategory);
+            }
             var maptalents = _mapper.Map<List<TalentVM>>(talents);
-            Console.WriteLine(maptalents.Count.ToString());
-            return View("DisplayTalents", maptalents);
+
+            // Pagination logic
+            var paginatedTalents = maptalents.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            var totalItems = maptalents.Count;
+
+            ViewBag.CurrentPage = page;
+            ViewBag.TotalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
+
+            ViewBag.Categories = new SelectList(_categoryRepository.GetAll().Distinct().Select(c => c.Name)); // Send categories to the view
+            ViewBag.SelectedCategory = selectedCategory; // Maintain the filter in the view
+
+            return View("DisplayTalents", paginatedTalents);
 		}
 
 		//[HttpGet]

@@ -20,6 +20,7 @@ namespace ArtPlatform.Controllers
             this.mapper = mapper;
         }
 
+		[HttpGet]
 		public IActionResult Index()
 		{
             List<Talent> talents = talentRepository.GetAll();
@@ -28,12 +29,18 @@ namespace ArtPlatform.Controllers
             return View("Index", maptalents);
 		}
 
-		public IActionResult Privacy()
-		{
-			return View();
-		}
+        [HttpGet]
+        public IActionResult About()
+        {
+            return View();
+        }
 
-		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()
 		{
 			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

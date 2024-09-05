@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ArtPlatform")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2ebdab07a5f8c42fda3a7704c317683b958acef8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1aa04e3456a33f51333d855ce584ee55895199c4")]
 [assembly: System.Reflection.AssemblyProductAttribute("ArtPlatform")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ArtPlatform")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

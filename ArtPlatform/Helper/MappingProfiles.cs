@@ -10,8 +10,11 @@ namespace ServicesApp.Helper
 		public MappingProfiles()
 		{
             CreateMap<Talent, TalentVM>()
-             .ForMember(dest => dest.Name, opt => opt.MapFrom(src => $"{src.FName} {src.LName}"));
+             .ForMember(dest => dest.Name, opt => opt.MapFrom(src => $"{src.FName} {src.LName}"))
+             .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category.Name));
+
             CreateMap<TalentVM, Talent>();
+
             //CreateMap<RegistrationDto, Customer>();
             //CreateMap<GetCustomerDto, RegistrationDto>();
             //CreateMap<Provider, GetProviderDto>();

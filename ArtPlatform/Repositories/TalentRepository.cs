@@ -24,6 +24,11 @@ namespace ArtPlatform.Repositories
             return context.Talents.Where(p => p.Id == id).Include(p => p.Category).FirstOrDefault();
         }
 
+        public List<Talent> GetTalentsOfCategory(string name)
+        {
+            return context.Talents.Include(p => p.Category).Where(p => p.Category.Name == name).ToList();
+        }
+
         //public Talent GetTalentOfBrand(int id)
         //{
         //    return context.Talents.Where(p => p.Brand.Id == id).Include(p => p.Brand).FirstOrDefault();
