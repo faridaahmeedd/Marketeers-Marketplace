@@ -1,0 +1,26 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ArtPlatform.Models
+{
+	public class Talent : AppUser
+    {
+		[Display(Name = "First Name")]
+		[MinLength(2)]
+		public string FName { get; set; }
+		[Display(Name = "Last Name")]
+		[MinLength(2)]
+		public string LName { get; set; }
+        [MinLength(2)]
+        public string Country { get; set; }
+        [MinLength(2)]
+        public string City { get; set; }
+        [Display(Name = "Mobile Number")]
+		[Phone]
+		public int MobileNumber { get; set; }
+		[MinLength(3)]
+		[MaxLength(100)]
+        public string Bio { get; set; }
+		public ICollection<Image>? Images {  get; set; }
+		public Category? Category { get; set; }
+    }
+}
