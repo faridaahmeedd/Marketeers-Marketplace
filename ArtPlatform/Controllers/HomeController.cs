@@ -24,7 +24,7 @@ namespace ArtPlatform.Controllers
 		public IActionResult Index()
 		{
             List<Talent> talents = talentRepository.GetAll();
-            var maptalents = mapper.Map<List<TalentVM>>(talents);
+            var maptalents = mapper.Map<List<TalentCardVM>>(talents);
             Console.WriteLine(maptalents.Count.ToString());
             return View("Index", maptalents);
 		}

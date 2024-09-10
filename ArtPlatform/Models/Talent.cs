@@ -15,10 +15,9 @@ namespace ArtPlatform.Models
         [MinLength(2)]
         public string City { get; set; }
         [Display(Name = "Mobile Number")]
-		[Phone]
 		public int MobileNumber { get; set; }
 		[MinLength(3)]
-		[MaxLength(100)]
+		[MaxLength(600)]
         public string Bio { get; set; }
 		public ICollection<Image>? Images {  get; set; }
 		public Category? Category { get; set; }

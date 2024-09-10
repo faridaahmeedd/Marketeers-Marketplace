@@ -541,3 +541,5 @@ C:\.Net\Marketeer'sMarketplace\ArtPlatform\obj\Debug\net8.0\ArtPlatform.pdb
 C:\.Net\Marketeer'sMarketplace\ArtPlatform\obj\Debug\net8.0\ArtPlatform.genruntimeconfig.cache
 C:\.Net\Marketeer'sMarketplace\ArtPlatform\obj\Debug\net8.0\ref\ArtPlatform.dll
 C:\.Net\Marketeer'sMarketplace\ArtPlatform\bin\Debug\net8.0\AutoMapper.dll
+C:\.Net\Marketeer'sMarketplace\ArtPlatform\bin\Debug\net8.0\Countries.dll
+C:\.Net\Marketeer'sMarketplace\ArtPlatform\bin\Debug\net8.0\NGeo.dll

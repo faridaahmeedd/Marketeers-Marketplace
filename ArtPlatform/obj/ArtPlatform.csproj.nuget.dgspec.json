@@ -49,6 +49,10 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
+            "Countries.Net": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
             "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": {
               "target": "Package",
               "version": "[8.0.8, )"
@@ -92,6 +96,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[8.0.4, )"
+            },
+            "NGeo": {
+              "target": "Package",
+              "version": "[1.9.0, )"
             }
           },
           "imports": [

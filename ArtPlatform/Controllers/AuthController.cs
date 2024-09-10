@@ -37,7 +37,7 @@ namespace ArtPlatform.Controllers
                 {
                     //Create cookie
                     await signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("CreateProfile", "Talent");
                 }
                 else
                 {

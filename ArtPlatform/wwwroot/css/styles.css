@@ -91,6 +91,67 @@
   }
 }
 
+/* Style for image preview containers */
+.image-preview {
+    display: inline-block;
+    width: 100px; /* Adjust the size here */
+    height: 100px; /* Ensure the height matches the width for a square */
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 5px;
+    position: relative;
+}
+.image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the container */
+}
+.thumbnail-img {
+    width: 100%; /* Ensures the image takes up full width */
+    height: auto; /* Maintains aspect ratio */
+    max-height: 300px; /* Restricts the height to a rectangular shape */
+    object-fit: cover; /* Ensures the image is cropped to fit the rectangle nicely */
+}
+.custom-col {
+    flex: 0 0 19%; /* Ensure each image takes up 19% of the row */
+    max-width: 19%;
+}
+
+.carousel-inner {
+    display: flex;
+    overflow: hidden; /* Hide overflow to maintain clean rows */
+}
+
+.carousel-item {
+    display: flex; /* Align items in a row within the item */
+    width: 100%; /* Ensure the item takes full width of the carousel */
+}
+
+.image-container {
+    flex: 1; /* Allow image container to grow */
+    padding: 10px; /* Adjust padding around each image */
+    box-sizing: border-box; /* Ensure padding is included in the element's total width */
+    height: 0; /* Set height to zero for padding trick */
+    padding-bottom: 20%; /* This controls the aspect ratio; 100% is a square */
+    position: relative; /* Position relative to position the image inside */
+}
+
+.image-square {
+    position: absolute; /* Position image inside the container */
+    top: 0;
+    left: 0;
+    width: calc(100% - 20px); /* Adjust width to account for padding */
+    height: calc(100% - 20px); /* Adjust height to account for padding */
+    object-fit: cover; /* Cover the container and maintain aspect ratio */
+    top: 10px; /* Adjust to match padding */
+    left: 10px; /* Adjust to match padding */
+    border-radius: 4px;
+}
+
+
+
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);

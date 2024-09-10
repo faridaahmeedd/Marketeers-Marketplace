@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ArtPlatform.ViewModels
 {
-	public class TalentVM
+	public class TalentCardVM
 	{
         [MinLength(2)]
         public required string Name { get; set; }

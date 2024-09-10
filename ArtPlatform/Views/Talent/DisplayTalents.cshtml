@@ -1,5 +1,5 @@
 ﻿@using ArtPlatform.ViewModels
-@model List<TalentVM>
+@model List<TalentCardVM>
 @using Microsoft.AspNetCore.Mvc.Rendering
 
 <!DOCTYPE html>
@@ -18,14 +18,13 @@
 </head>
 <body>
  <!--Main layout-->
- <main class="my-5">
+ <main class="my-5" >
     <div class="container">
       <!--Section: Content-->
       <section class="text-center">
         <h4 class="mb-5"><strong>Featured Talents</strong></h4>
                 <div class="d-flex justify-content-center mb-4">
                     <form method="get" asp-action="DisplayTalents" asp-controller="Talent" class="w-auto">
-                        <label for="categoryFilter" class="form-label">Filter by category:</label>
                         <select id="categoryFilter" name="selectedCategory" class="form-select" asp-items="ViewBag.Categories" style="width: 250px;">
                             <option value="">--Select Category--</option>
                         </select>

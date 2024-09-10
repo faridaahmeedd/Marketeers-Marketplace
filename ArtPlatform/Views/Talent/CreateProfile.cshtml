@@ -1,0 +1,121 @@
+﻿@model ArtPlatform.ViewModels.TalentProfileVM
+
+@{
+    ViewData["Title"] = "Create Profile";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Marketeer's Marketplace - Your Ultimate Guide for your Marketing Campaign</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="./css/styles.css" rel="stylesheet" />
+</head>
+<body class="d-flex flex-column h-100">
+    <section class="py-5">
+        <div class="container px-5">
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-5">
+                    <div class="card shadow-lg border-0 rounded-lg mt-5">
+                        <div class="card-header">
+                            <h3 class="text-center font-weight-light my-4">Create Profile</h3>
+                        </div>
+                        <div class="card-body">
+                            <form asp-action="CreateProfile" enctype="multipart/form-data">
+                                <div asp-validation-summary="All" class="text-danger"></div>
+                                <div class="form-floating mb-3">
+                                    <input asp-for="FName" class="form-control" placeholder="First Name" />
+                                    <label asp-for="FName">First Name</label>
+                                    <span asp-validation-for="FName" class="text-danger"></span>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input asp-for="LName" class="form-control" placeholder="Last Name" />
+                                    <label asp-for="LName">Last Name</label>
+                                    <span asp-validation-for="LName" class="text-danger"></span>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input asp-for="MobileNumber" class="form-control" placeholder="Mobile Number" />
+                                    <label asp-for="MobileNumber">Mobile Number</label>
+                                    <span asp-validation-for="MobileNumber" class="text-danger"></span>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input asp-for="Bio" class="form-control" placeholder="Bio" />
+                                    <label asp-for="Bio">Bio</label>
+                                    <span asp-validation-for="Bio" class="text-danger"></span>
+                                </div>
+                                <div class="d-flex justify-content-center mb-4">
+                                    <select id="SelectedCategory" name="SelectedCategory" class="form-select" asp-items="ViewBag.Categories" style="width: 250px;">
+                                         <option value="">--Select Category--</option>
+                                    </select>
+                                </div>
+                                <div class="d-flex justify-content-center mb-4">
+                                    <select id="Country" name="Country" class="form-select" asp-items="ViewBag.Countries" style="width: 250px;">
+                                        <option value="">--Select Country--</option>
+                                    </select>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input asp-for="City" class="form-control" placeholder="City" />
+                                    <label asp-for="City">City</label>
+                                    <span asp-validation-for="City" class="text-danger"></span>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="Pictures" class="form-label">Upload Pictures (Max 10)</label>
+                                    <input asp-for="Pictures" type="file" class="form-control" id="Pictures" multiple accept="image/*" />
+                                    <span asp-validation-for="Pictures" class="text-danger"></span>
+                                </div>
+                                <div id="imagePreviews" class="d-flex flex-wrap">
+                                    <div class="image-preview-container" id="imagePreviewContainer"></div>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary btn-block">Create Profile</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="./js/scripts.js"></script>
+    <script>
+        document.getElementById('Pictures').addEventListener('change', function (event) {
+            const imagePreviewsContainer = document.getElementById('imagePreviews');
+            imagePreviewsContainer.innerHTML = ''; // Clear existing previews
+
+            const files = event.target.files;
+            for (const file of files) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.classList.add('image-preview');
+
+                    const container = document.createElement('div');
+                    container.classList.add('image-preview');
+                    container.appendChild(img);
+
+                    imagePreviewsContainer.appendChild(container);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

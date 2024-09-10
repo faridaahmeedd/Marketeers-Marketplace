@@ -62,6 +62,19 @@
           }
         }
       },
+      "Countries.Net/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Countries.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Countries.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Humanizer/2.14.1": {
         "type": "package",
         "dependencies": {
@@ -2182,6 +2195,18 @@
           }
         }
       },
+      "NGeo/1.9.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "4.5.11"
+        },
+        "compile": {
+          "lib/net40/NGeo.dll": {}
+        },
+        "runtime": {
+          "lib/net40/NGeo.dll": {}
+        }
+      },
       "NuGet.Common/6.9.1": {
         "type": "package",
         "dependencies": {
@@ -3063,6 +3088,21 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "Countries.Net/1.1.0": {
+      "sha512": "rzTVVFjP4y2wexihX9xz5Pmyop8ShRHLeK/KkRYmn1FipR+eRWYvxyfNKBX4XPSIeMEJc8zu8+NJtoNh/dMJag==",
+      "type": "package",
+      "path": "countries.net/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "countries.net.1.1.0.nupkg.sha512",
+        "countries.net.nuspec",
+        "lib/netstandard2.0/Countries.dll",
+        "lib/netstandard2.0/Countries.xml",
+        "logo.png"
       ]
     },
     "Humanizer/2.14.1": {
@@ -6853,6 +6893,20 @@
         "packageIcon.png"
       ]
     },
+    "NGeo/1.9.0": {
+      "sha512": "/LDfWWCsWqK9TG0bsMtbr2lrH+EZo2R4toQzMtvpkbOZmFXMOw+9ARU1LDPUay4Xq3ZTpb1k3+JaKS3ZBGA1+g==",
+      "type": "package",
+      "path": "ngeo/1.9.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/App.config.transform",
+        "content/Web.config.transform",
+        "lib/net40/NGeo.dll",
+        "ngeo.1.9.0.nupkg.sha512",
+        "ngeo.nuspec"
+      ]
+    },
     "NuGet.Common/6.9.1": {
       "sha512": "FbuWZBjQ1NJXBDqCwSddN2yvw3Plq3sTCIh0nc66Hu8jrNr+BOaxlKZv78jvJ+pSy8BvurYOdF9sl9KoORjrtg==",
       "type": "package",
@@ -8380,6 +8434,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "AutoMapper >= 13.0.1",
+      "Countries.Net >= 1.1.0",
       "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter >= 8.0.8",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 8.0.8",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.8",
@@ -8389,7 +8444,8 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.8",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.8",
       "Microsoft.Extensions.Identity.Core >= 8.0.8",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.4"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.4",
+      "NGeo >= 1.9.0"
     ]
   },
   "packageFolders": {
@@ -8441,6 +8497,10 @@
             "target": "Package",
             "version": "[13.0.1, )"
           },
+          "Countries.Net": {
+            "target": "Package",
+            "version": "[1.1.0, )"
+          },
           "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": {
             "target": "Package",
             "version": "[8.0.8, )"
@@ -8484,6 +8544,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[8.0.4, )"
+          },
+          "NGeo": {
+            "target": "Package",
+            "version": "[1.9.0, )"
           }
         },
         "imports": [
@@ -8508,5 +8572,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'NGeo 1.9.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "libraryId": "NGeo",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }
