@@ -1,5 +1,6 @@
 ﻿using ArtPlatform.Data;
 using ArtPlatform.Interfaces;
+using ArtPlatform.Models;
 
 namespace ArtPlatform.Repositories
 {
@@ -28,7 +29,7 @@ namespace ArtPlatform.Repositories
                 Image.CopyTo(fileStream);
                 fileStream.Close();
             }
-            context.Images.AddAsync(new Models.Image() { Path = filePath, Talent = talent});
+            context.Images.AddAsync(new Models.Image() { Path = uniqueFileName, Talent = talent});
             return Save();
         }
 
@@ -50,8 +51,10 @@ namespace ArtPlatform.Repositories
             return saved > 0 ? true : false;
         }
 
-        public static IFormFile CreateFormFile(string filePath)
+        private IFormFile CreateFormFile(string fileName)
         {
+            string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "Images");
+            string filePath = Path.Combine(uploadsFolder, fileName);
             var fileInfo = new FileInfo(filePath);
             var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
             return new FormFile(fileStream, 0, fileInfo.Length, fileInfo.Name, fileInfo.Name);

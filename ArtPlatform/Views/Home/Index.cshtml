@@ -30,12 +30,14 @@
                         <h1 class="display-5 fw-bolder text-white mb-2"> Your Ultimate Guide for Marketing Campaigns</h1>
                         <p class="lead fw-normal text-white-50 mb-4"> Find photographers, videographers, influencers, and more—all in one place. Elevate your brand with the perfect creative professionals.</p>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                            <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Explore Talents</a>
-                            <a class="btn btn-outline-light btn-lg px-4" href="#!">How It Works</a>
+                            <a class="btn btn-primary btn-lg px-4 me-sm-3" href="~/Talent/DisplayTalents">Explore Talents</a>
+                            @* <a class="btn btn-outline-light btn-lg px-4" href="#!">How It Works</a> *@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
+                <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
+                    <img class="img-fluid rounded-3 my-5" src="~/images/Logo.png" alt="..." style="width: 300px; height: auto;"/>
+                </div>
             </div>
         </div>
     </header>
@@ -116,30 +118,19 @@
                 @for (int i = 0; i < 3; i++)
                 {
                     <div class="col-lg-4 mb-5">
-                        <div class="card h-100 shadow border-0">
-                            <img class="card-img-top" src="https://dummyimage.com/600x350/ced4da/6c757d" alt="..." />
+                        <a href="/Talent/DisplayProfile?id=@Model.ToArray()[i].Id" class="card h-100 shadow border-0 text-decoration-none text-dark">
+                            <img class="card-img-top fixed-image" src="~/images/@Model.ToArray()[i].ImagePath" alt="..." />
                             <div class="card-body p-4">
-                                <div class="badge bg-primary bg-gradient rounded-pill mb-2"> @Model.ToArray()[i].CategoryName </div>
-                                <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3"> @Model.ToArray()[i].Name </h5></a>
+                                <div class="badge bg-primary bg-gradient rounded-pill mb-2">@Model.ToArray()[i].CategoryName</div>
+                                <h5 class="card-title mb-3">@Model.ToArray()[i].Name</h5>
                                 <p class="card-text mb-0">@Model.ToArray()[i].Bio</p>
                             </div>
-                            @* <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-                        <div class="d-flex align-items-end justify-content-between">
-                        <div class="d-flex align-items-center">
-                        <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
-                        <div class="small">
-                        <div class="fw-bold">Farida Ahmed</div>
-                        <div class="text-muted">March 12, 2023 &middot; 6 min read</div>
-                        </div>
-                        </div>
-                        </div>
-                        </div> *@
-                        </div>
+                        </a>
                     </div>
                 }
             </div>
             <!-- Contact Us -->
-            <aside class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5">
+            <aside id="contact" class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5">
                 <div class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
                     <div class="mb-4 mb-xl-0">
                         <div class="fs-3 fw-bold text-white">Contact Us</div>

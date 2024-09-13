@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Countries.NET;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ArtPlatform.Controllers
 {
@@ -38,7 +39,6 @@ namespace ArtPlatform.Controllers
                 talents = _talentRepository.GetTalentsOfCategory(selectedCategory);
             }
             var maptalents = _mapper.Map<List<TalentCardVM>>(talents);
-
             // Pagination logic
             var paginatedTalents = maptalents.Skip((page - 1) * pageSize).Take(pageSize).ToList();
             var totalItems = maptalents.Count;
@@ -56,12 +56,12 @@ namespace ArtPlatform.Controllers
 		public IActionResult CreateProfile()
 		{
             ViewBag.Categories = new SelectList(_categoryRepository.GetAll().Distinct().Select(c => c.Name));
-			ViewBag.Countries = new SelectList(_countryService.GetAll().Select(c => c.Name).ToList()); 
             return View();
 		}
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
+        [Authorize]
 		public async Task<IActionResult> CreateProfile(TalentProfileVM talentProfileVM)
 		{
             if (ModelState.IsValid)
@@ -100,17 +100,78 @@ namespace ArtPlatform.Controllers
         }
 
         [HttpGet]
-        public IActionResult DisplayProfile()
+        public IActionResult DisplayProfile(string id)
         {
-            string id = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            ViewData["Owner"] = false;
+            if (id == null)
+            {
+                id = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+                ViewData["Owner"] = "true";
+            }
             var talent = _talentRepository.GetTalent(id);
             if (talent != null)
             {
-                var maptalents = _mapper.Map<TalentProfileVM>(talent);
-                maptalents.Pictures = _imageRepository.GetImagesOfTalent(id);
-                return View("DisplayProfile", maptalents);
+                var mapTalent = _mapper.Map<TalentProfileVM>(talent);
+                mapTalent.Pictures = _imageRepository.GetImagesOfTalent(id);
+                return View("DisplayProfile", mapTalent);
             }
             return View();
+        }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult EditProfile()
+        {
+            string id = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            ViewBag.Categories = new SelectList(_categoryRepository.GetAll().Distinct().Select(c => c.Name));
+            var talent = _talentRepository.GetTalent(id);
+            var mapTalent = _mapper.Map<TalentProfileVM>(talent);
+            mapTalent.Pictures = _imageRepository.GetImagesOfTalent(id);
+            foreach(var image in mapTalent.ExistingImageUrls)
+            {
+                Console.WriteLine(image);
+            }
+            return View("EditProfile", mapTalent);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize]
+        public async Task<IActionResult> EditProfile(TalentProfileVM talentProfileVM)
+        {
+            if (ModelState.IsValid)
+            {
+                string id = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+                //Handle file uploads
+                if (talentProfileVM.Pictures != null && talentProfileVM.Pictures.Count > 0)
+                {
+                    int fileCount = 0;
+
+                    foreach (var file in talentProfileVM.Pictures)
+                    {
+                        if (file.Length > 0)
+                        {
+                            if (fileCount >= 10)
+                            {
+                                ModelState.AddModelError("", "You can only upload up to 10 pictures.");
+                                return View(talentProfileVM);
+                            }
+
+                            _imageRepository.UploadImage(file, id);
+                            fileCount++;
+                        }
+                    }
+                }
+
+                var maptalent = _mapper.Map<Talent>(talentProfileVM);
+                maptalent.Category = _categoryRepository.GetCategory(talentProfileVM.SelectedCategory);
+                maptalent.Id = id;
+
+                await _talentRepository.CreateProfile(maptalent);
+
+                return RedirectToAction("DisplayProfile", "Talent");
+            }
+            return View(talentProfileVM);
         }
 
     }

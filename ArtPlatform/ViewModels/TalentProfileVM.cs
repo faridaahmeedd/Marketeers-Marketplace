@@ -11,6 +11,7 @@ namespace ArtPlatform.ViewModels
         [Display(Name = "Last Name")]
         [MinLength(2)]
         public required string LName { get; set; }
+        public required string Email { get; set; }
         [MinLength(2)]
         public required string Country { get; set; }
         [MinLength(2)]
@@ -21,7 +22,18 @@ namespace ArtPlatform.ViewModels
         [MinLength(3)]
         [MaxLength(500)]
         public required string Bio { get; set; }
+        [Display(Name = "Category")]
         public required String SelectedCategory { get; set; }
+        [Display(Name = "Instagram Url")]
+        [DataType(DataType.Url)]
+        public required Uri InstagramUrl { get; set; }
+        [Display(Name = "Tiktok Url")]
+        [DataType(DataType.Url)]
+        public required Uri TiktokUrl { get; set; }
+        [Display(Name = "Facebook Url")]
+        [DataType(DataType.Url)]
+        public Uri? FacebookUrl { get; set; }
         public required List<IFormFile> Pictures { get; set; }
+        public List<string>? ExistingImageUrls { get; set; }
     }
 }

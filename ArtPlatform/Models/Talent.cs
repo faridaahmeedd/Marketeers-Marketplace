@@ -19,7 +19,10 @@ namespace ArtPlatform.Models
 		[MinLength(3)]
 		[MaxLength(600)]
         public string Bio { get; set; }
-		public ICollection<Image>? Images {  get; set; }
+        public Uri? InstagramUrl { get; set; }
+        public Uri? TiktokUrl { get; set; }
+        public Uri? FacebookUrl { get; set; }
+        public ICollection<Image>? Images {  get; set; }
 		public Category? Category { get; set; }
     }
 }

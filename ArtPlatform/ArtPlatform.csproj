@@ -381,7 +381,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot - Copy\images\" />
-    <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
   <ItemGroup>

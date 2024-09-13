@@ -35,23 +35,17 @@
         <!-- Talents Section -->
         <div class="row">
             @for (int i = 0; i < Model.Count && i < 6; i++) {
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card">
-                        <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
-                            <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" />
-                            <a href="#!">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">@Model[i].Name</h5>
-                            <p class="card-text">
-                                @Model[i].Bio
-                            </p>
-                            <a href="#!" class="btn btn-primary">@Model[i].CategoryName</a>
-                        </div>
-                    </div>
-                </div>
+                <div class="col-lg-4 mb-5">
+                        <a href="/Talent/DisplayProfile?id=@Model.ToArray()[i].Id" class="card h-100 shadow border-0 text-decoration-none text-dark">
+                                <img class="card-img-top fixed-image" src="~/images/@Model.ToArray()[i].ImagePath" alt="..." />
+                                <div class="card-body p-4">
+                                <div class="badge bg-primary bg-gradient rounded-pill mb-2">@Model.ToArray()[i].CategoryName</div>
+                                <h5 class="card-title mb-3">@Model.ToArray()[i].Name</h5>
+                                <p class="card-text mb-0">@Model.ToArray()[i].Bio</p>
+                            </div>
+                        </a>
+                     </div>
+
             }
         </div>
         <!-- End Talents Section -->

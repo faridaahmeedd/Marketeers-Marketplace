@@ -25,26 +25,51 @@
         <div class="d-flex justify-content-center">
             <div class="container px-5 my-5" style="max-width: 900px;">
                 <div class="col-lg-12">
-                    <!-- Post content-->
                     <article>
-                        <!-- Post header-->
                         <header class="mb-4 ">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <!-- Post title on the left -->
-                                <div>
+                            <div class="container">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
                                     <h1 class="fw-bolder mb-1">@Model.FName @Model.LName</h1>
-                                    <div class="text-muted fst-italic mb-2">@Model.City, @Model.Country</div>
-                                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">@Model.SelectedCategory</a>
+                                    @if (ViewData["Owner"].ToString() == "true")
+                                    {
+                                        <a class="btn btn-primary btn-sm" href="~/Talent/EditProfile">Edit Profile</a>
+                                    }
                                 </div>
-
-                                <!-- Email and phone on the right -->
-                                <div class="d-flex align-items-center mt-lg-2 mb-2">
-                                    <div class="ms-3 text-end">
-                                        <div class="fw-bold">example@gmail.com</div>
-                                        <div class="text-muted">+20 01155722999</div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div>
+                                        <div class="text-muted fst-italic mb-2">@Model.City, @Model.Country</div>
+                                        <div class="mb-1">
+                                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">@Model.SelectedCategory</a>
+                                        </div>
+                                        <div class="d-flex mt-2">
+                                            <a class="fs-5 px-2 link-dark" href="@Model.TiktokUrl"><i class="bi-tiktok"></i></a>
+                                            <a class="fs-5 px-2 link-dark" href="@Model.InstagramUrl"><i class="bi-instagram"></i></a>
+                                            @if (Model.FacebookUrl != null)
+                                            {
+                                                <a class="fs-5 px-2 link-dark" href="@Model.FacebookUrl" target="_blank">
+                                                    <i class="bi-facebook"></i>
+                                                </a>
+                                            }
+                                        </div>
                                     </div>
-                                </div>
+
+                                    <div class="d-flex align-items-center mb-4">
+                                        <div class="ms-3 text-muted">
+                                            <a href="mailto:@Model.Email">@Model.Email</a>
+                                            <div>+20 01155722999</div>
+                                        </div>
+                                    </div>
+                                </div>                                
                             </div>
+
+                            <!-- Optional: Custom CSS for additional styling -->
+                            <style>
+                                .btn-sm {
+                                    font-size: 0.9rem; 
+                                    padding: 0.25rem 0.5rem;
+                                }
+                            </style>
+
                         </header>
 
                         <!-- Large Image -->

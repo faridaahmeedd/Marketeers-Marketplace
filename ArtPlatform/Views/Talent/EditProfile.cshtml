@@ -1,7 +1,7 @@
 ﻿@model ArtPlatform.ViewModels.TalentProfileVM
 
 @{
-    ViewData["Title"] = "Create Profile";
+    ViewData["Title"] = "Edit Profile";
 }
 
 <!DOCTYPE html>
@@ -24,12 +24,12 @@
         <div class="container px-5">
             <div class="row gx-5 justify-content-center">
                 <div class="col-lg-5">
-                    <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card shadow-lg border-0 rounded-lg mt-2">
                         <div class="card-header">
-                            <h3 class="text-center font-weight-light my-4">Create Profile</h3>
+                            <h3 class="text-center font-weight-light my-4">Edit Profile</h3>
                         </div>
                         <div class="card-body">
-                            <form asp-action="CreateProfile" enctype="multipart/form-data">
+                            <form asp-action="EditProfile" enctype="multipart/form-data">
                                 <div asp-validation-summary="All" class="text-danger"></div>
                                 <div class="form-floating mb-3">
                                     <input asp-for="FName" class="form-control" placeholder="First Name" />
@@ -95,10 +95,17 @@
                                     <span asp-validation-for="Pictures" class="text-danger"></span>
                                 </div>
                                 <div id="imagePreviews" class="d-flex flex-wrap mb-3">
-                                    <div class="image-preview-container" id="imagePreviewContainer"></div>
+                                    @foreach (var imageUrl in Model.ExistingImageUrls)
+                                    {
+                                        <div class="image-preview-container">
+                                            <img src="~/images/@imageUrl" alt="Existing Image" />
+                                            <!-- Remove button -->
+                                            <button type="button" class="remove-img-btn" onclick="removeImage('@imageUrl')">&times;</button>
+                                        </div>
+                                    }
                                 </div>
                                 <div class="d-grid">
-                                    <button type="submit" class="btn btn-primary btn-block">Create Profile</button>
+                                    <button type="submit" class="btn btn-primary btn-block">Edit Profile</button>
                                 </div>
                             </form>
                         </div>
@@ -125,14 +132,29 @@
                     img.classList.add('image-preview');
 
                     const container = document.createElement('div');
-                    container.classList.add('image-preview');
+                    container.classList.add('image-preview-container');
                     container.appendChild(img);
+
+                    // Create and append the remove button
+                    const removeBtn = document.createElement('button');
+                    removeBtn.classList.add('remove-img-btn');
+                    removeBtn.innerHTML = '&times;'; // × character
+                    removeBtn.onclick = function () {
+                        container.remove();
+                        // Handle file removal if necessary
+                    };
+                    container.appendChild(removeBtn);
 
                     imagePreviewsContainer.appendChild(container);
                 };
                 reader.readAsDataURL(file);
             }
         });
+
+        function removeImage(imageUrl) {
+            // Implement removal of the existing image
+            // This can involve sending an AJAX request to delete the image from the server
+        }
     </script>
 </body>
 </html>

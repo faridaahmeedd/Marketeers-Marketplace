@@ -85,6 +85,10 @@
       "PackagePath": "staticwebassets\\images\\908e0dcb-75ef-494b-987b-65786b5f776b_2021_07_04_18_57_IMG_9011.JPG"
     },
     {
+      "Id": "C:\\.Net\\Marketeer'sMarketplace\\ArtPlatform\\wwwroot\\images\\Logo.png",
+      "PackagePath": "staticwebassets\\images\\Logo.png"
+    },
+    {
       "Id": "C:\\.Net\\Marketeer'sMarketplace\\ArtPlatform\\wwwroot\\images\\a17d0554-9458-482c-b722-91b3587c783a_2021_04_04_07_33_IMG_6722.JPG",
       "PackagePath": "staticwebassets\\images\\a17d0554-9458-482c-b722-91b3587c783a_2021_04_04_07_33_IMG_6722.JPG"
     },
@@ -99,6 +103,10 @@
     {
       "Id": "C:\\.Net\\Marketeer'sMarketplace\\ArtPlatform\\wwwroot\\images\\df8c1896-06bf-4b5e-8e9b-9d4b51bae6b8_2021_04_04_07_33_IMG_6722.JPG",
       "PackagePath": "staticwebassets\\images\\df8c1896-06bf-4b5e-8e9b-9d4b51bae6b8_2021_04_04_07_33_IMG_6722.JPG"
+    },
+    {
+      "Id": "C:\\.Net\\Marketeer'sMarketplace\\ArtPlatform\\wwwroot\\images\\e977ef82-88e5-41a2-9e83-8b4c049b25f3_2021_04_04_07_34_IMG_6721.JPG",
+      "PackagePath": "staticwebassets\\images\\e977ef82-88e5-41a2-9e83-8b4c049b25f3_2021_04_04_07_34_IMG_6721.JPG"
     },
     {
       "Id": "C:\\.Net\\Marketeer'sMarketplace\\ArtPlatform\\wwwroot\\img\\mdb-favicon.ico",
