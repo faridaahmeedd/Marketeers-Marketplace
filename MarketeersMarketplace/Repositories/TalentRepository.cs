@@ -25,9 +25,14 @@ namespace MarketeersMarketplace.Repositories
             return context.Talents.Where(p => p.Id == id).Include(p => p.Category).Include(p => p.Images).FirstOrDefault();
         }
 
-        public List<Talent> GetTalentsOfCategory(string name)
+        public List<Talent> GetTalentsOfCategory(string category)
         {
-            return context.Talents.Include(p => p.Category).Include(p => p.Images).Where(p => p.Category.Name == name).ToList();
+            return context.Talents.Include(p => p.Category).Include(p => p.Images).Where(p => p.Category.Name == category).ToList();
+        }
+
+        public List<Talent> GetTalentsByName(string name)
+        {
+            return context.Talents.Include(p => p.Category).Include(p => p.Images).Where(p => p.FName.Contains(name) || p.LName.Contains(name)).ToList();
         }
 
         public async Task<bool> CreateProfile(Talent updatedTalent)

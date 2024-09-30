@@ -24,16 +24,18 @@
       <section class="text-center">
         <h4 class="mb-5"><strong>Featured Talents</strong></h4>
                 <div class="d-flex justify-content-center mb-4">
-                    <form method="get" asp-action="DisplayTalents" asp-controller="Talent" class="w-auto">
-                        <select id="categoryFilter" name="selectedCategory" class="form-select" asp-items="ViewBag.Categories" style="width: 250px;">
-                            <option value="">--Select Category--</option>
-                        </select>
-                        <button type="submit" class="btn btn-primary mt-2">Filter</button>
+                    <form method="get" asp-action="DisplayTalents" asp-controller="Talent" class="w-auto" id="categoryFilterForm">
+                        <div class="d-flex align-items-center">
+                            <input type="text" name="searchTerm" class="form-control mx-5 me-2" placeholder="Search talents..." aria-label="Search" style="width: 200px;">
+                            <select id="categoryFilter" name="selectedCategory" class="form-select mx-5" asp-items="ViewBag.Categories" style="width: 250px;" onchange="this.form.submit();">
+                                <option value="">--Select Category--</option>
+                            </select>
+                        </div>
                     </form>
                 </div>
 
         <!-- Talents Section -->
-        <div class="row">
+        <div id="talentResults" class="row">
             @for (int i = 0; i < Model.Count && i < 6; i++) {
                 <div class="col-lg-4 mb-5">
                         <a href="/Talent/DisplayProfile?id=@Model.ToArray()[i].Id" class="card h-100 shadow border-0 text-decoration-none text-dark">
@@ -44,8 +46,7 @@
                                 <p class="card-text mb-0">@Model.ToArray()[i].Bio</p>
                             </div>
                         </a>
-                     </div>
-
+                </div>
             }
         </div>
         <!-- End Talents Section -->
@@ -101,5 +102,38 @@
   </main>
     <!-- Bootstrap core JS-->
     <script type="text/javascript" src="./js/mdb.umd.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Event listener for the search input
+            $('input[name="searchTerm"]').on('input', function () {
+                const searchTerm = $(this).val();
+                const selectedCategory = $('#categoryFilter').val();
+                $.ajax({
+                    url: '@Url.Action("DisplayTalents", "Talent")', // Your action method here
+                    type: 'GET',
+                    data: { searchTerm: searchTerm, selectedCategory: selectedCategory },
+                    success: function (data) {
+                        $('#talentResults').html(data); // Update the results container
+                    }
+                });
+            });
+
+            // Event listener for category change
+            $('#categoryFilter').on('change', function () {
+                const searchTerm = $('input[name="searchTerm"]').val();
+                const selectedCategory = $(this).val();
+                $.ajax({
+                    url: '@Url.Action("DisplayTalents", "Talent")',
+                    type: 'GET',
+                    data: { searchTerm: searchTerm, selectedCategory: selectedCategory },
+                    success: function (data) {
+                        $('#talentResults').html(data); // Update the results container
+                    }
+                });
+            });
+        });
+    </script>
+
 </body> 
 </html>

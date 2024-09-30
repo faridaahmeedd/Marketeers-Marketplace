@@ -30,15 +30,23 @@ namespace MarketeersMarketplace.Controllers
         }
 
         [HttpGet]
-        public IActionResult DisplayTalents(string selectedCategory = null, int page = 1, int pageSize = 6)
+        public IActionResult DisplayTalents(string selectedCategory = null, string searchTerm = null, int page = 1, int pageSize = 6)
         {
             List<Talent> talents = _talentRepository.GetAll();
+
             // Filter by category if provided
             if (!string.IsNullOrEmpty(selectedCategory))
             {
                 talents = _talentRepository.GetTalentsOfCategory(selectedCategory);
             }
+
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                talents = _talentRepository.GetTalentsByName(searchTerm);
+            }
+
             var maptalents = _mapper.Map<List<TalentCardVM>>(talents);
+
             // Pagination logic
             var paginatedTalents = maptalents.Skip((page - 1) * pageSize).Take(pageSize).ToList();
             var totalItems = maptalents.Count;
@@ -46,11 +54,18 @@ namespace MarketeersMarketplace.Controllers
             ViewBag.CurrentPage = page;
             ViewBag.TotalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
 
-            ViewBag.Categories = new SelectList(_categoryRepository.GetAll().Distinct().Select(c => c.Name)); // Send categories to the view
-            ViewBag.SelectedCategory = selectedCategory; // Maintain the filter in the view
+            ViewBag.Categories = new SelectList(_categoryRepository.GetAll().Distinct().Select(c => c.Name));
+            ViewBag.SelectedCategory = selectedCategory;
 
-            return View("DisplayTalents", paginatedTalents);
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                // Return partial view for AJAX request
+                return PartialView("_TalentCards", paginatedTalents);
+            }
+
+            return View("DisplayTalents", paginatedTalents); // Return full view for normal requests
         }
+
 
         [HttpGet]
         public IActionResult CreateProfile()

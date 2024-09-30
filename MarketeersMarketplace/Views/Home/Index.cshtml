@@ -24,19 +24,21 @@
     <!-- Header-->
     <header class="bg-dark py-5">
         <div class="container px-5">
-            <div class="row gx-5 align-items-center justify-content-center">
+            <div class="row gx-5 align-items-center justify-content-between">
                 <div class="col-lg-8 col-xl-7 col-xxl-6">
                     <div class="my-5 text-center text-xl-start">
-                        <h1 class="display-5 fw-bolder text-white mb-2"> Your Ultimate Guide for Marketing Campaigns</h1>
-                        <p class="lead fw-normal text-white-50 mb-4"> Find photographers, models, influencers, and more—all in one place. Elevate your brand with the perfect creative professionals.</p>
+                        <h1 class="display-5 fw-bolder text-white mb-2">Your Ultimate Guide for Marketing Campaigns</h1>
+                        <p class="lead fw-normal text-white-50 mb-4">Find photographers, models, influencers, and more—all in one place. Elevate your brand with the perfect creative professionals.</p>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
                             <a class="btn btn-primary btn-lg px-4 me-sm-3" href="~/Talent/DisplayTalents">Explore Talents</a>
                             @* <a class="btn btn-outline-light btn-lg px-4" href="#!">How It Works</a> *@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
-                    <img class="img-fluid rounded-3 my-5" src="~/images/Logo.png" alt="..." style="width: 300px; height: auto;"/>
+                <div class="col-xl-5 col-xxl-6 text-center">
+                    <div class="d-flex justify-content-end">
+                        <img class="img-fluid rounded-3 my-5" src="~/images/Logo.png" alt="..." style="width: 300px; height: auto;" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -103,59 +105,78 @@
             </div>
         </div>
     </div>
-    <!-- Blog preview section-->
+
     <section class="py-5">
-        <div class="container px-5 my-5">
-            <div class="row gx-5 justify-content-center">
-                <div class="col-lg-8 col-xl-6">
-                    <div class="text-center">
-                        <h2 class="fw-bolder">Featured Talents</h2>
-                        <p class="lead fw-normal text-muted mb-5">Explore the latest talents available for your marketing campaigns. Get inspired by their skills and creativity!</p>
+        <div class="container px-5">
+            <div class="my-5">
+                <div class="row gx-5 justify-content-center py-2">
+                    <div class="col-lg-8 col-xl-6">
+                        <div class="text-center">
+                            <h2 class="fw-bolder">Featured Talents</h2>
+                            <p class="lead fw-normal text-muted mb-5">Explore the latest talents available for your marketing campaigns. Get inspired by their skills and creativity!</p>
+                        </div>
                     </div>
                 </div>
+                <div class="row gx-5 py-2">
+                    @for (int i = 0; i < 3; i++)
+                    {
+                        <div class="col-lg-4 mb-5">
+                            <a href="/Talent/DisplayProfile?id=@Model.ToArray()[i].Id" class="card h-100 shadow border-0 text-decoration-none text-dark">
+                                <img class="card-img-top fixed-image" src="~/images/@Model.ToArray()[i].ImagePath" alt="..." />
+                                <div class="card-body p-4">
+                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">@Model.ToArray()[i].CategoryName</div>
+                                    <h5 class="card-title mb-3">@Model.ToArray()[i].Name</h5>
+                                    <p class="card-text mb-0">@Model.ToArray()[i].Bio</p>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
             </div>
-            <div class="row gx-5">
-                @for (int i = 0; i < 3; i++)
-                {
-                    <div class="col-lg-4 mb-5">
-                        <a href="/Talent/DisplayProfile?id=@Model.ToArray()[i].Id" class="card h-100 shadow border-0 text-decoration-none text-dark">
-                            <img class="card-img-top fixed-image" src="~/images/@Model.ToArray()[i].ImagePath" alt="..." />
-                            <div class="card-body p-4">
-                                <div class="badge bg-primary bg-gradient rounded-pill mb-2">@Model.ToArray()[i].CategoryName</div>
-                                <h5 class="card-title mb-3">@Model.ToArray()[i].Name</h5>
-                                <p class="card-text mb-0">@Model.ToArray()[i].Bio</p>
-                            </div>
-                        </a>
-                    </div>
-                }
-            </div>
+            
             <!-- Contact Us -->
-            <aside id="contact" class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5">
-                <div class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
-                    <div class="mb-4 mb-xl-0">
-                        <div class="fs-3 fw-bold text-white">Contact Us</div>
-                        <div class="text-white-50">Have questions or need support? Reach out to us and we'll get back to you as soon as possible.</div>
+            <aside id="contact" class="bg-primary bg-gradient rounded-3 p-0 p-lg-0 mt-5">
+                <div class="d-flex flex-column flex-lg-row align-items-stretch justify-content-between">
+                    <!-- Left Section with Image -->
+                    <div class="bg-white w-100 d-flex align-items-center justify-content-center p-5" style="min-height: 100%;">
+                        <img src="~/images/contactus.jpg" alt="Contact Us" class="img-fluid" style="max-width: 100%; height: auto;">
                     </div>
-                    <div class="ms-xl-4">
+
+                    <!-- Right Section (Text and Form) -->
+                    <div class="ms-lg-4 w-100 d-flex flex-column justify-content-center p-5 p-lg-5">
+                        <div class="text-white mb-4 text-center text-lg-start">
+                            <h3 class="fw-bold">Contact Us</h3>
+                            <p class="text-white-50 mb-0">
+                                Have questions or need support? Reach out to us, and we'll get back to you as soon as possible.
+                            </p>
+                        </div>
+
                         <form>
                             <div class="mb-3">
                                 <label for="contactName" class="form-label text-white">Name</label>
-                                <input type="text" class="form-control" id="contactName" placeholder="Your name" required>
+                                <input type="text" class="form-control form-control-lg" id="contactName" placeholder="Your name" required>
                             </div>
                             <div class="mb-3">
                                 <label for="contactEmail" class="form-label text-white">Email</label>
-                                <input type="email" class="form-control" id="contactEmail" placeholder="Your email address" required>
+                                <input type="email" class="form-control form-control-lg" id="contactEmail" placeholder="Your email address" required>
                             </div>
                             <div class="mb-3">
                                 <label for="contactMessage" class="form-label text-white">Message</label>
-                                <textarea class="form-control" id="contactMessage" rows="4" placeholder="Your message" required></textarea>
+                                <textarea class="form-control form-control-lg" id="contactMessage" rows="4" placeholder="Your message" required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-outline-light">Send Message</button>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-light btn-lg">Send Message</button>
+                            </div>
                         </form>
-                        <div class="small text-white-50 mt-3">We aim to respond within 24 hours. Your privacy is important to us.</div>
+
+                        @* <div class="small text-white-50 mt-3">
+                            We aim to respond within 24 hours. Your privacy is important to us.
+                        </div> *@
                     </div>
                 </div>
             </aside>
+
+
 
             <@* aside class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5">
                 <div class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
