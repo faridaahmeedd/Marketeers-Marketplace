@@ -9,14 +9,14 @@ namespace MarketeersMarketplace.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         private readonly ITalentRepository talentRepository;
+        private readonly IEmailRepository emailRepository;
         private readonly IMapper mapper;
 
-        public HomeController(ILogger<HomeController> logger, ITalentRepository talentRepository, IMapper mapper)
+        public HomeController(ITalentRepository talentRepository, IEmailRepository emailRepository, IMapper mapper)
         {
-            _logger = logger;
             this.talentRepository = talentRepository;
+            this.emailRepository = emailRepository;
             this.mapper = mapper;
         }
 
@@ -44,5 +44,27 @@ namespace MarketeersMarketplace.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [HttpPost]
+        public IActionResult SendMessage(ContactUsVM contactUsVM)
+        {
+            bool emailSent = emailRepository.SendMail(contactUsVM);
+
+            if (emailSent)
+            {
+                return RedirectToAction("MessageSent");
+            }
+            else
+            {
+                ModelState.AddModelError("", "There was an error sending the message. Please try again later.");
+            }
+            return PartialView("_ContactFormPartial", contactUsVM);
+        }
+
+        public IActionResult MessageSent()
+        {
+            return View();
+        }
+
     }
 }

@@ -16,12 +16,12 @@ namespace MarketeersMarketplace.Models
         public string City { get; set; }
         [Display(Name = "Mobile Number")]
         public int MobileNumber { get; set; }
-        [MinLength(3)]
-        [MaxLength(600)]
-        public string Bio { get; set; }
         public Uri? InstagramUrl { get; set; }
         public Uri? TiktokUrl { get; set; }
         public Uri? FacebookUrl { get; set; }
+        [MinLength(3)]
+        [MaxLength(600)]
+        public string Bio { get; set; }
         public ICollection<Image>? Images { get; set; }
         public Category? Category { get; set; }
     }

@@ -1,9 +1,9 @@
-﻿@{
+﻿@using MarketeersMarketplace.ViewModels
+@model List<TalentCardVM>
+
+@{
     ViewData["Title"] = "Home Page";
 }
-
-@using MarketeersMarketplace.ViewModels
-@model List<TalentCardVM>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -151,27 +151,8 @@
                             </p>
                         </div>
 
-                        <form>
-                            <div class="mb-3">
-                                <label for="contactName" class="form-label text-white">Name</label>
-                                <input type="text" class="form-control form-control-lg" id="contactName" placeholder="Your name" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="contactEmail" class="form-label text-white">Email</label>
-                                <input type="email" class="form-control form-control-lg" id="contactEmail" placeholder="Your email address" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="contactMessage" class="form-label text-white">Message</label>
-                                <textarea class="form-control form-control-lg" id="contactMessage" rows="4" placeholder="Your message" required></textarea>
-                            </div>
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-light btn-lg">Send Message</button>
-                            </div>
-                        </form>
+                        @await Html.PartialAsync("_ContactForm", new MarketeersMarketplace.ViewModels.ContactUsVM())
 
-                        @* <div class="small text-white-50 mt-3">
-                            We aim to respond within 24 hours. Your privacy is important to us.
-                        </div> *@
                     </div>
                 </div>
             </aside>
