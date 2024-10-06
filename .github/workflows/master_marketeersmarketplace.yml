@@ -23,7 +23,7 @@ jobs:
 
       - name: Build with dotnet
         run: |
-          cd "C:\.Net\Marketeer'sMarketplace"  # Navigate to the project directory
+          cd "C:\.Net\MarketeersMarketplace"  # Navigate to the project directory
           dotnet build --configuration Release
 
       - name: dotnet publish
@@ -65,4 +65,4 @@ jobs:
         with:
           app-name: 'marketeersmarketplace'
           slot-name: 'Production'
-          package: C:\.Net\Marketeer'sMarketplace\publish_output  # Ensure this matches the published output path
+          package: C:\.Net\MarketeersMarketplace\publish_output  # Ensure this matches the published output path
