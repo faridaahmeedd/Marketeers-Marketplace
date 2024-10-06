@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "s+hRXzn8N1J2rQLO4iQ4vr0P031R09StnbnJylIyJDrdd8ZbDXPA3gEIeNXr5brmOnvnbHRuluznOEXnVBpNLw==",
+  "dgSpecHash": "a3ZCX1Xj4dTSk74oaBGEHMOg7uEsJzFeOL23hT6wAo4Kc7tCahp3Wabyf8mpJc3QX4EqhkouZ8hgE3fmsFMMKg==",
   "success": true,
-  "projectFilePath": "C:\\.Net\\Marketeer'sMarketplace\\MarketeersMarketplace\\MarketeersMarketplace.csproj",
+  "projectFilePath": "C:\\.Net\\MarketeersMarketplace\\MarketeersMarketplace\\MarketeersMarketplace.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

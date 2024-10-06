@@ -8455,11 +8455,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\.Net\\Marketeer'sMarketplace\\MarketeersMarketplace\\MarketeersMarketplace.csproj",
+      "projectUniqueName": "C:\\.Net\\MarketeersMarketplace\\MarketeersMarketplace\\MarketeersMarketplace.csproj",
       "projectName": "MarketeersMarketplace",
-      "projectPath": "C:\\.Net\\Marketeer'sMarketplace\\MarketeersMarketplace\\MarketeersMarketplace.csproj",
+      "projectPath": "C:\\.Net\\MarketeersMarketplace\\MarketeersMarketplace\\MarketeersMarketplace.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "C:\\.Net\\Marketeer'sMarketplace\\MarketeersMarketplace\\obj\\",
+      "outputPath": "C:\\.Net\\MarketeersMarketplace\\MarketeersMarketplace\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
