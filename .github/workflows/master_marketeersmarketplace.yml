@@ -62,4 +62,4 @@ jobs:
         with:
           app-name: 'marketeersmarketplace'
           slot-name: 'Production'
-          package: ${{ github.workspace }}\MarketeersMarketplace\publish_output  # Ensure this matches the published output path
+          package: ${{ github.workspace }}\MarketeersMarketplace\publish  # Ensure this matches the published output path
