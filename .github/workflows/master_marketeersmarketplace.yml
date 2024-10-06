@@ -22,16 +22,20 @@ jobs:
           dotnet-version: '8.x'
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: |
+          cd "C:\.Net\Marketeer'sMarketplace"  # Navigate to the project directory
+          dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: |
+          cd "C:\.Net\MarketeersMarketplace"  # Navigate to the project directory
+          dotnet publish -c Release -o C:\.Net\MarketeersMarketplace\publish_output  # Adjust output folder
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          path: C:\.Net\MarketeersMarketplace\publish_output  # Use the correct path
 
   deploy:
     runs-on: windows-latest
@@ -61,5 +65,4 @@ jobs:
         with:
           app-name: 'marketeersmarketplace'
           slot-name: 'Production'
-          package: .
-          
+          package: C:\.Net\Marketeer'sMarketplace\publish_output  # Ensure this matches the published output path
