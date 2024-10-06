@@ -17,67 +17,79 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MarketeersMarketplace
 build_property.RootNamespace = MarketeersMarketplace
-build_property.ProjectDir = C:\.Net\Marketeer'sMarketplace\MarketeersMarketplace\
+build_property.ProjectDir = C:\.Net\MarketeersMarketplace\MarketeersMarketplace\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\.Net\Marketeer'sMarketplace\MarketeersMarketplace
+build_property.MSBuildProjectDirectory = C:\.Net\MarketeersMarketplace\MarketeersMarketplace
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/.Net/Marketeer'sMarketplace/MarketeersMarketplace/Views/Auth/Login.cshtml]
+[C:/.Net/MarketeersMarketplace/MarketeersMarketplace/Views/Auth/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/.Net/Marketeer'sMarketplace/MarketeersMarketplace/Views/Auth/Register.cshtml]
+[C:/.Net/MarketeersMarketplace/MarketeersMarketplace/Views/Auth/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/.Net/Marketeer'sMarketplace/MarketeersMarketplace/Views/Home/About.cshtml]
+[C:/.Net/MarketeersMarketplace/MarketeersMarketplace/Views/Home/About.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/.Net/Marketeer'sMarketplace/MarketeersMarketplace/Views/Home/Index.cshtml]
+[C:/.Net/MarketeersMarketplace/MarketeersMarketplace/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/.Net/Marketeer'sMarketplace/MarketeersMarketplace/Views/Home/Privacy.cshtml]
+[C:/.Net/MarketeersMarketplace/MarketeersMarketplace/Views/Home/MessageSent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNZXNzYWdlU2VudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/.Net/MarketeersMarketplace/MarketeersMarketplace/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/.Net/Marketeer'sMarketplace/MarketeersMarketplace/Views/Shared/Error.cshtml]
+[C:/.Net/MarketeersMarketplace/MarketeersMarketplace/Views/Home/_ContactForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfQ29udGFjdEZvcm0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/.Net/MarketeersMarketplace/MarketeersMarketplace/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/.Net/Marketeer'sMarketplace/MarketeersMarketplace/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/.Net/MarketeersMarketplace/MarketeersMarketplace/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/.Net/Marketeer'sMarketplace/MarketeersMarketplace/Views/Talent/CreateProfile.cshtml]
+[C:/.Net/MarketeersMarketplace/MarketeersMarketplace/Views/Talent/CreateProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFsZW50XENyZWF0ZVByb2ZpbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/.Net/Marketeer'sMarketplace/MarketeersMarketplace/Views/Talent/DisplayProfile.cshtml]
+[C:/.Net/MarketeersMarketplace/MarketeersMarketplace/Views/Talent/DisplayProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFsZW50XERpc3BsYXlQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/.Net/Marketeer'sMarketplace/MarketeersMarketplace/Views/Talent/DisplayTalents.cshtml]
+[C:/.Net/MarketeersMarketplace/MarketeersMarketplace/Views/Talent/DisplayTalents.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFsZW50XERpc3BsYXlUYWxlbnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/.Net/Marketeer'sMarketplace/MarketeersMarketplace/Views/Talent/EditProfile.cshtml]
+[C:/.Net/MarketeersMarketplace/MarketeersMarketplace/Views/Talent/EditProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFsZW50XEVkaXRQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/.Net/Marketeer'sMarketplace/MarketeersMarketplace/Views/_ViewImports.cshtml]
+[C:/.Net/MarketeersMarketplace/MarketeersMarketplace/Views/Talent/_TalentCards.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFsZW50XF9UYWxlbnRDYXJkcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/.Net/MarketeersMarketplace/MarketeersMarketplace/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/.Net/Marketeer'sMarketplace/MarketeersMarketplace/Views/_ViewStart.cshtml]
+[C:/.Net/MarketeersMarketplace/MarketeersMarketplace/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/.Net/Marketeer'sMarketplace/MarketeersMarketplace/Views/Shared/_Layout.cshtml]
+[C:/.Net/MarketeersMarketplace/MarketeersMarketplace/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-z46xv26ugb
