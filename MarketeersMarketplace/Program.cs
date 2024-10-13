@@ -14,11 +14,14 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(
-	builder.Configuration.GetConnectionString("DefaultConnection")
+	builder.Configuration.GetConnectionString("Azure")
 ));
-builder.Services.AddIdentity<AppUser, IdentityRole>()
-        .AddEntityFrameworkStores<DataContext>()
-        .AddDefaultTokenProviders();
+builder.Services.AddIdentity<AppUser, IdentityRole>( options =>{
+    options.SignIn.RequireConfirmedEmail = true;
+    options.User.RequireUniqueEmail = true; 
+})
+    .AddEntityFrameworkStores<DataContext>()
+    .AddDefaultTokenProviders();
 
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IImageRepository, ImageRepository>();

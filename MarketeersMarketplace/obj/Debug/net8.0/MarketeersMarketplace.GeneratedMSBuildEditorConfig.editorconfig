@@ -26,6 +26,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\.Net\MarketeersMarketplace\MarketeersMarketplace
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/.Net/MarketeersMarketplace/MarketeersMarketplace/Views/Auth/ConfirmationNotice.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxDb25maXJtYXRpb25Ob3RpY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/.Net/MarketeersMarketplace/MarketeersMarketplace/Views/Auth/ConfirmEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxDb25maXJtRW1haWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/.Net/MarketeersMarketplace/MarketeersMarketplace/Views/Auth/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

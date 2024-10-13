@@ -4,6 +4,7 @@ namespace MarketeersMarketplace.Interfaces
 {
     public interface IEmailRepository
     {
-        bool SendMail(ContactUsVM contactUsVM);
+        bool SendContactMail(ContactUsVM contactUsVM);
+        bool SendVerificationMail(string email, string confirmationUrl);
     }
 }

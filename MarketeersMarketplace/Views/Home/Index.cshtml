@@ -138,25 +138,23 @@
             <aside id="contact" class="bg-primary bg-gradient rounded-3 p-0 p-lg-0 mt-5">
                 <div class="d-flex flex-column flex-lg-row align-items-stretch justify-content-between">
                     <!-- Left Section with Image -->
-                    <div class="bg-white w-100 d-flex align-items-center justify-content-center p-5" style="min-height: 100%;">
-                        <img src="~/images/contactus.jpg" alt="Contact Us" class="img-fluid" style="max-width: 100%; height: auto;">
+                    <div class="bg-white w-100 d-flex align-items-center justify-content-center p-3" style="min-height: 100%;">
+                        <img src="~/images/contactus.jpg" alt="Contact Us" class="img-fluid" style="max-width: 90%; height: auto; max-height: 400px;"> 
                     </div>
 
                     <!-- Right Section (Text and Form) -->
-                    <div class="ms-lg-4 w-100 d-flex flex-column justify-content-center p-5 p-lg-5">
+                    <div class="ms-lg-4 w-100 d-flex flex-column justify-content-center p-4 p-lg-5">
                         <div class="text-white mb-4 text-center text-lg-start">
-                            <h3 class="fw-bold">Contact Us</h3>
-                            <p class="text-white-50 mb-0">
+                            <h3 class="fw-bold small-text">Contact Us</h3> 
+                            <p class="text-white-50 mb-0 small-text">
                                 Have questions or need support? Reach out to us, and we'll get back to you as soon as possible.
                             </p>
                         </div>
 
                         @await Html.PartialAsync("_ContactForm", new MarketeersMarketplace.ViewModels.ContactUsVM())
-
                     </div>
                 </div>
             </aside>
-
 
 
             <@* aside class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5">

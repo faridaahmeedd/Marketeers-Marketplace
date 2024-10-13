@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Email Confirmation";
+}
+
+<div class="container-fluid mt-5 px-3">
+    <div class="container" style="max-width: 1000px;">
+        <div class="card shadow-lg rounded-lg mt-2">
+            <div class="card-header text-center @(ViewBag.IsConfirmed != null && ViewBag.IsConfirmed ? "bg-success" : "bg-danger") text-white">
+                <h3>Email Confirmation</h3>
+            </div>
+            <div class="card-body p-4">
+                <p class="text-center">
+                    @if (ViewBag.IsConfirmed != null && ViewBag.IsConfirmed)
+                    {
+                        <strong>Your email has been confirmed successfully!</strong>
+                    }
+                    else
+                    {
+                        <strong>There was a problem confirming your email. Please try again later.</strong>
+                    }
+                </p>
+                <div class="text-center mt-4">
+                    <a href="@Url.Action("Login", "Auth")" class="btn btn-link link-primary p-2" style="vertical-align: baseline;">Go to Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

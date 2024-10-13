@@ -66,7 +66,6 @@ namespace MarketeersMarketplace.Controllers
             return View("DisplayTalents", paginatedTalents); // Return full view for normal requests
         }
 
-
         [HttpGet]
         public IActionResult CreateProfile()
         {
@@ -108,7 +107,6 @@ namespace MarketeersMarketplace.Controllers
                 maptalent.Id = id;
 
                 await _talentRepository.CreateProfile(maptalent);
-
                 return RedirectToAction("index", "Home");
             }
             return View(talentProfileVM);

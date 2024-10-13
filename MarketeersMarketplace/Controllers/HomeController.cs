@@ -48,7 +48,7 @@ namespace MarketeersMarketplace.Controllers
         [HttpPost]
         public IActionResult SendMessage(ContactUsVM contactUsVM)
         {
-            bool emailSent = emailRepository.SendMail(contactUsVM);
+            bool emailSent = emailRepository.SendContactMail(contactUsVM);
 
             if (emailSent)
             {

@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Confirmation Notice";
+}
+
+<div class="container mt-5 px-3 d-flex justify-content-center">
+    <div class="card shadow-lg rounded-lg mt-2" style="width: 100%; max-width: 1000px;">
+        <div class="card-header text-center bg-success text-white">
+            <h3>Almost There! Please Confirm Your Email</h3>
+        </div>
+        <div class="card-body p-4">
+            <p class="text-center">
+                We've sent a confirmation email to your inbox. Please check your email and click the confirmation link to verify your account.
+            </p>
+            <div class="d-flex justify-content-center align-items-center text-center" style="flex-wrap: wrap;">
+                If you don't receive the email within a few minutes, please check your spam folder or
+                <form asp-action="ResendConfirmationEmail" method="post" class="d-inline" style="margin: 0; display: inline;">
+                    <input type="hidden" name="email" value="@ViewBag.Email" />
+                    <button type="submit" class="btn btn-link link-primary p-0" style="vertical-align: baseline; margin: 0 0.5rem;">click here</button> <!-- Added margin for spacing -->
+                </form>
+                to resend the email.
+            </div>
+        </div>
+    </div>
+</div>

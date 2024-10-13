@@ -26,8 +26,13 @@
                 <div class="d-flex justify-content-center mb-4">
                     <form method="get" asp-action="DisplayTalents" asp-controller="Talent" class="w-auto" id="categoryFilterForm">
                         <div class="d-flex align-items-center">
-                            <input type="text" name="searchTerm" class="form-control mx-5 me-2" placeholder="Search talents..." aria-label="Search" style="width: 200px;">
-                            <select id="categoryFilter" name="selectedCategory" class="form-select mx-5" asp-items="ViewBag.Categories" style="width: 250px;" onchange="this.form.submit();">
+                            <div class="input-group me-3" style="width: 250px;">
+                                <span class="input-group-text bg-white border-end-0" id="basic-addon1">
+                                    <i class="fas fa-search text-muted"></i>
+                                </span>
+                                <input type="text" name="searchTerm" class="form-control border-start-0" placeholder="Search Talents..." aria-label="Search">
+                            </div>
+                            <select id="categoryFilter" name="selectedCategory" class="form-select" asp-items="ViewBag.Categories" onchange="this.form.submit();" style="width: 250px;">
                                 <option value="">--Select Category--</option>
                             </select>
                         </div>

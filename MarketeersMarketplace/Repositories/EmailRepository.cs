@@ -14,26 +14,39 @@ namespace MarketeersMarketplace.Repositories
             this.config = config;
         }
 
-        public bool SendMail(ContactUsVM contactUsVM)
+        public bool SendVerificationMail(string email, string confirmationUrl)
+        {
+            var body = $@"
+                    <h2>Click this link to confirm your email address</h2>
+                    <p>{confirmationUrl}</p>";
+
+            return Send(email, "Verify Your Email", body);
+        }
+
+        public bool SendContactMail(ContactUsVM contactUsVM)
+        {
+            var body = $@"
+                    <h2>Contact Form Submission</h2>
+                    <p><strong>Name:</strong> {contactUsVM.Name}</p>
+                    <p><strong>Email:</strong> {contactUsVM.Email}</p>
+                    <p><strong>Message:</strong> {contactUsVM.Message}</p>";
+           
+            return Send(contactUsVM.Email, "Contact Us Form Submission", body);
+        }
+
+        private bool Send(string email, string subject, string body)
         {
             string senderEmail = config["SMTP:Sender_Email"];
             string senderPassword = config["SMTP:Sender_Password"];
 
             try
             {
-                var body = $@"
-                    <h2>Contact Form Submission</h2>
-                    <p><strong>Name:</strong> {contactUsVM.Name}</p>
-                    <p><strong>Email:</strong> {contactUsVM.Email}</p>
-                    <p><strong>Message:</strong> {contactUsVM.Message}</p>";
-
-                MailMessage mailMessage = new MailMessage(senderEmail, contactUsVM.Email)
+                MailMessage mailMessage = new MailMessage(senderEmail, email)
                 {
-                    Subject = "Contact Us Form Submission",
+                    Subject = subject,
                     IsBodyHtml = true,
                     Body = body
                 };
-
                 using (SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
                 {
                     Port = 587,
